@@ -125,3 +125,12 @@ Fixpoint exp (n: nat) (m: nat): nat :=
     end.
 
 Compute (exp (S(S(o))) (S(S(S(o))))).
+Compute (mult (S(S(o))) (o)).
+
+Fixpoint fact  (n: nat): nat :=
+    match n with
+    | o => S(o)
+    | S(q) => mult (fact q) n
+    end.
+
+Compute (fact (S(S(S(o))))).
