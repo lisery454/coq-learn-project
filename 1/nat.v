@@ -99,5 +99,29 @@ Fixpoint is_great (n1 : nat) (n2 : nat) : bool :=
     | S(p), S(q) => is_great p q
     end.
 
+(* Definition gtb (n : nat) (m : nat) : bool :=
+    match sub n m with 
+    | o => false
+    | S(_) => true
+    end.
+
+Compute (gtb (S(o)) (S(o))). *)
+
+Fixpoint mult (n: nat) (m: nat): nat := 
+    match n, m with
+    | o, _ => o
+    | _, o => o
+    | S(p), S(q) => S (add (mult p q) (add p q))
+    end.
+
+Compute (mult (S(S(o))) (S(S(S(o))))).
+Compute (mult (S(S(o))) (S(o))).
 
 
+Fixpoint exp (n: nat) (m: nat): nat :=
+    match m with
+    | o => S(o)
+    | S(p) => mult (exp n p) n
+    end.
+
+Compute (exp (S(S(o))) (S(S(S(o))))).
