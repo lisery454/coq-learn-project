@@ -134,3 +134,16 @@ Fixpoint fact  (n: nat): nat :=
     end.
 
 Compute (fact (S(S(S(o))))).
+
+Fixpoint div3 (n: nat) :bool :=
+    match n with
+    | o => true
+    | S(o) => false
+    | S(S(o)) => false
+    | S(S(S(q))) => div3(q)
+    end.
+
+Compute (div3(S(S(S(o))))).
+
+    
+
