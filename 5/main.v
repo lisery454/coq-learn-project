@@ -53,7 +53,7 @@ induction n as [ | n' IHn'].
 
 Qed.
 
-
+Print nat.
 Theorem add_comm: forall n m :nat,
     n + m = m + n.
 Proof.
@@ -66,15 +66,32 @@ induction n as [ | n' IHn'].
     
 Qed.
 
+Print list.
 
 Theorem app_nil : forall l : list nat,
     app l nil = l.   
 Proof.
 intro l. 
-induction l as [ | t IHt'].
--simpl. reflexivity.
--simpl. rewrite IHt'. reflexivity.
+induction l as [ | h l' IHl'].
+- reflexivity.
+- simpl. Print app. rewrite IHl'. reflexivity.
     
 Qed.
+
+
+Theorem le_transitivity: forall m n p : nat,
+    le m n -> le n p -> le m p.
+Proof.
+
+intros m n p H1 H2.
+
+induction H2.
+
+- apply H1.
+
+- apply le_S. apply IHle.  
+
+Qed.
+
 
 
