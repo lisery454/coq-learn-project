@@ -48,3 +48,50 @@ Notation "[ x ; .. ; y ]" :=
 Notation "x ++ y" := (app x y) 
  (at level 60, right associativity).
 
+
+Definition hd (X: Type)(default : X)(l: list X) : X :=
+    match l with
+    | xnil => default
+    | xcons n l' => n
+    end.
+
+Fixpoint tl (X: Type)(default : X)(l: list X) : X :=
+    match l with
+    | xnil => default
+    | xcons n l' => tl X n l'
+    end.
+
+Fixpoint length (X: Type)(l: list X) : nat :=
+    match l with
+    | xnil => 0
+    | xcons n l' => S(length X l')
+    end.
+
+Fixpoint rev (X: Type)(l: list X) : list X :=
+    match l with 
+    | xnil => xnil
+    | xcons n l' => (rev X l') ++ [n]
+    end.
+
+Compute (hd nat 0 [1;2;3;4;5]).
+
+Compute (tl nat 0 [1;2;3;4;5]).
+
+Compute (length nat [1;2;3;4;5]).
+
+Compute (rev nat [1;2;3;4;5]).
+
+Inductive btree (X: Type) :=
+    | xtnil
+    | xbind (x: X)(t1 : btree X) (t2 : btree X).
+    
+
+
+
+
+
+
+
+
+
+

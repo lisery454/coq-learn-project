@@ -168,3 +168,18 @@ Fixpoint nonzero (list: natlist) :natlist :=
     | n::list' => if iszero n then nonzero list'
                         else n::(nonzero list')
     end.
+
+Fixpoint isEven (n: nat) :bool :=
+    match n with
+    | 0 => true
+    | 1 => false
+    | S (S n') => isEven n'
+    end.
+
+Fixpoint changeList(l: natlist) :natlist :=
+    match l with
+    | nil => nil
+    | n::l' => if isEven n then 2*n :: changeList(l') else 3*n :: changeList(l')
+    end.
+
+Compute (changeList [1;2;3;4;5;6;7]).
