@@ -156,7 +156,7 @@ Fixpoint max (list: natlist) :nat :=
 
 Compute (max [1;6;3;5;7;9;2]).
 
-Fixpoint iszero (n: nat) :bool :=
+Definition iszero (n: nat) :bool :=
     match n with
     | 0 => true
     | _ => false
