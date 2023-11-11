@@ -51,10 +51,10 @@ Qed.
 Ltac reduce2 := 
     repeat match goal with
     | [_ : ?P |- ?P] => assumption
-    | [|- _ (S _ ) _ = S _] => simpl
+    | [|- ?A = ?A] => reflexivity
     | [H1: ?P = ?Q |- _ ?P = _ ?Q] => rewrite H1
     | [|- forall n, _] => intro;induction n
-    | [|-_] => reflexivity
+    | [|-_] => simpl
     end.
 
 Theorem minus_n_n : forall n : nat,  n - n = 0.
