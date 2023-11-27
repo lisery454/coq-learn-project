@@ -126,10 +126,3 @@ Fixpoint partition {X : Type} (f : X -> bool) (l : list X) : (list X)*(list X) :
     end.
     
 
-
-
-
-
-
-
-
