@@ -45,6 +45,8 @@ Theorem disjunction : forall P Q :Prop,
 
 Proof.
 
+(* intuition. *)
+
 intros.
 
 split.
