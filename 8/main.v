@@ -1,6 +1,6 @@
 Require Import Arith.
 
-Fixpoint cubic_root_helper(n x:nat): nat :=
+Fixpoint cubic_root_helper(n x: nat): nat :=
     match x with
     | 0 => 0
     | S x' =>  
@@ -18,5 +18,5 @@ Definition cubic_root (n: nat): nat :=
     | _ => cubic_root_helper n (n-1)
     end.
 
-Compute(cubic_root 7).
+Compute(cubic_root 8).
 
